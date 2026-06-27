@@ -32,7 +32,7 @@ contract SecureVault {
     }
 
     /**
-     * @notice Withdraw funds (only owner atau custodian)
+     * @notice Withdraw funds (only owner or custodian)
      */
     function withdraw(uint256 _amount) external {
         require(msg.sender == owner || msg.sender == custodian, "Not authorized");
