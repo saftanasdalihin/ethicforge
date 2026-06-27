@@ -39,7 +39,8 @@ contract SecureVault {
         require(_amount <= totalDeposit, "Insufficient balance");
 
         totalDeposit -= _amount;
-        payable(msg.sender).transfer(_amount);
+        (bool success,) = msg.sender.call{value: _amount}("");
+        require(success, "Withdrawal failed");
 
         emit WithdrawalMade(msg.sender, _amount);
     }

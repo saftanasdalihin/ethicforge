@@ -12,33 +12,32 @@ contract GoldVault {
 
     constructor() {
         owner = msg.sender;
-        balance = 0;
     }
 
     modifier onlyOwner() {
-        if (msg.sender != owner) {
-            revert notOwner();
-        }
+        _onlyOwner();
         _;
     }
 
+    function _onlyOwner() internal view {
+        if (msg.sender != owner) revert notOwner();
+    }
+
     function deposit() external payable {
-        if (msg.value <= 0) {
-            revert insufficientFunds();
-        }
-        balance += msg.value;
+        if (msg.value == 0) revert insufficientFunds();
         emit Deposit(msg.sender, msg.value);
     }
 
     function withdraw(uint256 amount) external onlyOwner {
-        if (amount > balance) {
-            revert insufficientFunds();
-        }
-        balance -= amount;
+        if (amount > address(this).balance) revert insufficientFunds();
+
         (bool success,) = payable(owner).call{value: amount}("");
-        if (!success) {
-            revert withdrawalFailed();
-        }
+        if (!success) revert withdrawalFailed();
+
         emit Withdrawal(owner, amount);
+    }
+
+    function getBalance() external view returns (uint256) {
+        return address(this).balance;
     }
 }
