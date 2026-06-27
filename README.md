@@ -1,107 +1,71 @@
-# Syariah Factory
+# EthicForge 🛠️
 
-A smart contract factory implementing Sharia-compliant Islamic finance instruments on the blockchain using Solidity. This project provides decentralized implementations of traditional Islamic financing mechanisms.
+**Modular Smart Contract Factory for Ethical Finance**
 
-## Overview
+A collection of reusable "Lego blocks" — secure, transparent, and modular smart contracts designed for fair and responsible financial applications.
 
-Syariah Factory provides three core Islamic finance contracts that can be instantiated through a factory pattern:
+---
 
-### Core Contracts
+### ✨ Philosophy
+We believe finance should be built on **transparency, fairness, and real economic activity** — not speculation or exploitation.
 
-#### **Mudharabah**
-A profit-sharing partnership contract based on Islamic commerce principles. Capital is provided by one party, with returns shared according to an agreed profit-sharing percentage.
+EthicForge provides building blocks that promote:
+- Profit-sharing instead of fixed interest
+- Asset-backed transactions
+- Clear custody and responsibility
 
-- **Parameters**: Capital amount and profit share percentage
-- **Use Case**: Investment partnerships and venture financing
+### 📦 Available Modules
 
-#### **Murabahah**
-A cost-plus financing contract commonly used in Islamic banking. The financier adds an agreed-upon profit margin to the cost of goods.
+| Module              | Purpose                          | Use Case                     |
+|---------------------|----------------------------------|------------------------------|
+| **PartnershipPool** | Profit-sharing partnership       | Investment, venture funding  |
+| **AssetFinancing**  | Cost-plus / markup financing     | Asset purchase, trade        |
+| **SecureVault**     | Trusted asset custody            | Deposits, safekeeping        |
 
-- **Parameters**: Cost of asset and profit margin
-- **Use Case**: Asset financing and installment purchases
+---
 
-#### **Wadiah**
-A safekeeping/deposit contract ensuring secure storage of funds or assets with an optional custodian fee.
+### 🚀 Quick Start
 
-- **Parameters**: Deposit amount
-- **Use Case**: Custodial services and deposits
+```bash
+git clone https://github.com/saftanasdalihin/ethicforge.git
+cd ethicforge
 
-#### **SyariahFactory**
-Factory contract that creates and manages instances of all three Islamic finance contracts.
-
-- **Functions**:
-  - `createMudharabah()` - Deploy a new Mudharabah contract
-  - `createMurabahah()` - Deploy a new Murabahah contract
-  - `createWadiah()` - Deploy a new Wadiah contract
-
-## Project Structure
-
-```
-src/
-├── SyariahFactory.sol   # Main factory contract
-├── Mudharabah.sol       # Profit-sharing partnership
-├── Murabahah.sol        # Cost-plus financing
-└── Wadiah.sol           # Safekeeping deposit
-```
-
-## Development with Foundry
-
-This project uses **Foundry**, a blazing fast toolkit for Ethereum development written in Rust.
-
-### Prerequisites
-
-- [Foundry](https://book.getfoundry.sh/getting-started/installation)
-
-### Build
-
-```shell
 forge build
-```
-
-### Test
-
-```shell
 forge test
 ```
 
-### Format Code
+### 🛠️ Tech Stack
 
-```shell
-forge fmt
-```
+Solidity ^0.8.34
+Foundry (recommended)
+Modular & upgradeable-ready design
 
-### Gas Snapshots
+### 📌 Features
 
-```shell
-forge snapshot
-```
+Factory pattern (easy to deploy multiple instances)
+Full test coverage
+Gas optimized
+Clear events for transparency
+Well-documented code
 
-### Local Node (Anvil)
 
-```shell
-anvil
-```
+### Why EthicForge?
 
-### Deploy
+Modular → Mix and match contracts like Lego
+Reusable → Deploy once, use many times
+Transparent → Everything is on-chain and verifiable
+Ethical-first → Designed with fairness and responsibility in mind
 
-```shell
-forge script script/Deploy.s.sol --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+Perfect for:
 
-### Cast (Interact with Contracts)
+DeFi builders
+Impact projects
+Responsible finance applications
+Learning advanced Solidity patterns
 
-```shell
-cast <subcommand>
-```
 
-## Foundry Documentation
+⭐ If this project helps you build better systems, feel free to star it!
+Made with ❤️ for transparent finance
 
-For more information, visit the [Foundry Book](https://book.getfoundry.sh/).
-
-## Contributing
-
-Contributions are welcome! Please ensure all code follows Solidity best practices and is compatible with Sharia principles.
-
-## License
-
-MIT
+Contributions are welcome!
+See CONTRIBUTING.md for how to contribute.
